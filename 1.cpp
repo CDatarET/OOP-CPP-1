@@ -1,5 +1,10 @@
 #include <iostream>
 using namespace std;
+/*
+    Authored by Chaitanya Datar
+    Panel F
+    1262242226
+*/
 
 class Rectangle{
     private:
@@ -68,6 +73,65 @@ class Triangle{
         }
 };
 
+class Circle{
+    private:
+        double area;
+    
+    public:
+        double radius;
+
+        Circle(double radius){
+            this->radius = radius;
+            this->area = 3.14 * (radius * radius);
+
+            cout << "successfully created a Circle object\n";
+        }
+
+        void getArea(){
+            cout << "Area is " << area << "\n";
+        }
+};
+
+class Cylinder{
+    private:
+        double volume;
+    
+    public:
+        double radius;
+        double height;
+
+        Cylinder(double radius, double height){
+            this->radius = radius;
+            this->height = height;
+            this->volume = 3.14 * radius * radius * height;
+
+            cout << "successfully created a Cylinder object\n";
+        }
+
+        void getVolume(){
+            cout << "Volume is " << volume << "\n";
+        }
+};
+
+class Sphere{
+    private:
+        double volume;
+    
+    public:
+        double radius;
+
+        Sphere(double radius){
+            this->radius = radius;
+            this->volume = 4.0 / 3.0 * 3.14 * (radius * radius * radius);
+
+            cout << "successfully created a Sphere object\n";
+        }
+
+        void getVolume(){
+            cout << "Volume is " << volume << "\n";
+        }
+};
+
 void recArea(bool isSquare){
     double length;
     cout << "Enter Length: ";
@@ -86,8 +150,44 @@ void recArea(bool isSquare){
 
 }
 
-double triArea(double base, double height){
-    return((base * height) / 2);
+void triArea(){
+    double base;
+    cout << "Enter Base: ";
+    cin >> base;
+
+    double height;
+    cout << "Enter Height: ";
+    cin >> height;
+
+    cout << "Area is " << 0.5*(base * height) << "\n";
+}
+
+void circArea(){
+    double radius;
+    cout << "Enter Radius: ";
+    cin >> radius;
+
+    cout << "Area is " << 3.14 * (radius * radius) << "\n";
+}
+
+void cylVolume(){
+    double radius;
+    cout << "Enter Radius: ";
+    cin >> radius;
+
+    double height;
+    cout << "Enter Height: ";
+    cin >> height;
+
+    cout << "Volume is " << 3.14 * radius * radius * height << "\n";
+}
+
+void sphVolume(){
+    double radius;
+    cout << "Enter Radius: ";
+    cin >> radius;
+
+    cout << "Volume is " << 4.0 / 3.0 * 3.14 * (radius * radius * radius) << "\n";
 }
 
 int main(){
@@ -144,24 +244,79 @@ int main(){
                 break;
             
             case 3:
-                double base;
-                cout << "Enter Base: ";
-                cin >> base;
-
-                double height;
-                cout << "Enter Height: ";
-                cin >> height;
-
                 cout << "Object Oriented or Procedure? o/p: ";
                 cin >> op;
                 if(op == 'o'){
+                    double base;
+                    cout << "Enter Base: ";
+                    cin >> base;
+
+                    double height;
+                    cout << "Enter Height: ";
+                    cin >> height;
+
                     Triangle t(base, height);
                     t.getArea();
                 }
                 else{
-                    cout << "Area is " << triArea(base, height) << "\n";
+                    triArea();
                 }
                 break;
+            
+            case 4:
+                cout << "Object Oriented or Procedure? o/p: ";
+                cin >> op;
+                if(op == 'o'){
+                    double radius;
+                    cout << "Enter Radius: ";
+                    cin >> radius;
+
+                    Circle c(radius);
+                    c.getArea();
+                }
+                else{
+                    circArea();
+                }
+                break;
+
+            case 5:
+                cout << "Object Oriented or Procedure? o/p: ";
+                cin >> op;
+                if(op == 'o'){
+                    double radius;
+                    cout << "Enter Radius: ";
+                    cin >> radius;
+
+                    double height;
+                    cout << "Enter Height: ";
+                    cin >> height;
+
+                    Cylinder c(radius, height);
+                    c.getVolume();
+                }
+                else{
+                    cylVolume();
+                }
+                break;
+            
+            case 6:
+                cout << "Object Oriented or Procedure? o/p: ";
+                cin >> op;
+                if(op == 'o'){
+                    double radius;
+                    cout << "Enter Radius: ";
+                    cin >> radius;
+
+                    Sphere c(radius);
+                    c.getVolume();
+                }
+                else{
+                    circArea();
+                }
+                break;
+            
+            default:
+                cout << "Enter valid operation\n";
         }
 
         cout << "again? y/n: ";
